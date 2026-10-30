@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#124e5b">
+  <title>Organizers · MTRS 95/97</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+  <div class="event-strip">MTRS 95/97 <span>·</span> 6–8 AUGUST 2027 <span>·</span> ROYAL ORCHID, BANGALORE</div>
+  <header class="site-header shell">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">M</span><span>MTRS <strong>95/97</strong><small>ORGANIZER DESK</small></span></a>
+    <nav aria-label="Organizer navigation"><a href="/">View reunion site <span aria-hidden="true">↗</span></a><a href="/cdn-cgi/access/logout">Sign out</a></nav>
+  </header>
+  <main class="shell" id="dashboard">
+    <section class="access-card" id="boot-state" aria-live="polite"><div class="loading-ring" aria-hidden="true"></div><h1>Opening the organizer desk…</h1><p>Checking your protected session.</p></section>
+    <section class="access-card" id="access-state" hidden aria-labelledby="access-title"><span class="access-mark" aria-hidden="true">M</span><p class="eyebrow">ORGANIZERS ONLY</p><h1 id="access-title">Your protected session is unavailable.</h1><p id="access-message">Cloudflare Access could not verify this session. Open this dashboard through the configured Cloudflare Access address and sign in with your organizer email.</p><div class="button-row"><button class="button primary" id="retry-session" type="button">Try again</button><a class="button secondary" href="/cdn-cgi/access/logout">Sign out of Access</a></div><a class="quiet-link" href="/">Return to the reunion site</a></section>
+    <div id="admin-content" hidden>
+      <div class="page-heading"><div><p class="eyebrow">GOOD FRIENDS. A LITTLE ORGANIZING.</p><h1>The reunion, <span>coming together.</span></h1><p>Manage RSVPs and make room for the catch-up.</p></div><div class="session-label"><span class="session-dot" aria-hidden="true"></span>Protected organizer session<span id="session-email"></span></div></div>
+      <div class="banner" id="dashboard-message" role="status" hidden></div>
+      <section class="registration-control" aria-labelledby="registration-status-title"><div><p class="eyebrow">PUBLIC REGISTRATION</p><h2 id="registration-status-title">Checking registration status…</h2><p id="registration-status-copy">Attendance RSVPs; rooms and payment are coordinated separately.</p></div><button class="button secondary" id="registration-toggle" type="button" disabled>Loading…</button></section>
+      <section class="overview" aria-label="Global RSVP totals"><article class="stat-card stat-confirmed"><span class="stat-label">Confirmed alumni</span><strong data-stat="confirmed">—</strong><small>Ready for the reunion</small></article><article class="stat-card stat-cancelled"><span class="stat-label">Cancelled RSVPs</span><strong data-stat="cancelled">—</strong><small>Kept in the organizer record</small></article><article class="stat-card stat-purple"><span class="stat-label">2-night stay</span><strong data-stat="twoNight">—</strong><small>6–8 August</small></article><article class="stat-card stat-sage"><span class="stat-label">1-night stay</span><strong data-stat="oneNight">—</strong><small>7–8 August</small></article><article class="stat-card stat-peach"><span class="stat-label">Day attendees</span><strong data-stat="dayAttendee">—</strong><small>7 August</small></article></section>
+      <section class="planning-strip" aria-label="Confirmed attendee planning totals"><div><span>Single occupancy requests</span><strong data-stat="roomsSingle">—</strong></div><div><span>Twin-sharing requests</span><strong data-stat="roomsTwin">—</strong></div><div><span>Flying into Bangalore</span><strong data-stat="flying">—</strong></div><div><span>Transfer interest</span><strong data-stat="transfer">—</strong></div></section><p class="stats-note">Plan, occupancy and travel totals include confirmed alumni across all results. Twin-sharing requests count people, not allocated rooms.</p>
+      <section class="attendee-section" aria-labelledby="attendee-title"><div class="section-heading"><div><p class="eyebrow">THE PEOPLE MAKE THE WEEKEND</p><h2 id="attendee-title">The guest list</h2></div><div class="button-row"><button class="button secondary small" id="refresh-list" type="button">↻ Refresh</button><a class="button primary small" id="export-csv" href="/api/admin/export">↓ Download CSV</a></div></div>
+        <form id="filters" class="filters" role="search"><div class="search-field"><label for="search">Search alumni</label><input id="search" name="q" type="search" placeholder="Name, email, or city" maxlength="100" autocomplete="off"></div><div><label for="plan-filter">Participation</label><select id="plan-filter" name="plan"><option value="">All plans</option><option value="2_night">2-night stay</option><option value="1_night">1-night stay</option><option value="day_attendee">Day attendee</option></select></div><div><label for="status-filter">RSVP status</label><select id="status-filter" name="status"><option value="">All statuses</option><option value="confirmed">Confirmed</option><option value="cancelled">Cancelled</option></select></div><button class="button secondary small" type="reset">Clear filters</button><button class="sr-only" type="submit">Search</button></form>
+        <div class="results-toolbar"><p id="results-count" role="status">Loading RSVPs…</p><span id="results-updated"></span></div>
+        <div class="table-state" id="table-loading" aria-live="polite"><span class="loading-ring" aria-hidden="true"></span><p>Gathering the guest list…</p></div>
+        <div class="table-state" id="table-error" hidden><h3>The guest list could not be loaded.</h3><p id="table-error-message"></p><button class="button secondary" id="retry-list" type="button">Try again</button></div>
+        <div class="table-state" id="table-empty" hidden><span class="empty-mark" aria-hidden="true">♡</span><h3>No RSVPs to show here.</h3><p id="empty-message">Confirmed and cancelled registrations will appear here.</p><button class="button secondary" id="clear-empty-filters" type="button" hidden>Clear filters</button></div>
+        <div class="table-scroll" id="table-wrap" hidden tabindex="0" role="region" aria-label="Alumni registrations; scroll horizontally for more columns"><table><caption class="sr-only">Registered alumni matching the current filters</caption><thead><tr><th scope="col">Alumnus</th><th scope="col">Participation</th><th scope="col">Occupancy</th><th scope="col">Home</th><th scope="col">Status</th><th scope="col">Updated</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead><tbody id="registration-rows"></tbody></table></div>
+        <nav class="pagination" id="pagination" aria-label="Guest list pages" hidden><span id="page-label"></span><div><button class="button secondary small" id="previous-page" type="button">← Previous</button><button class="button secondary small" id="next-page" type="button">Next →</button></div></nav>
+      </section>
+      <footer class="dashboard-footer"><span>MTRS 95/97 · Organizer desk</span><span>Private RSVP information. Share exports only with the organizing team.</span></footer>
+    </div>
+  </main>
+  <dialog id="attendee-dialog" class="attendee-dialog" aria-labelledby="attendee-dialog-title"><div id="attendee-content"></div></dialog>
+  <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title"><p class="eyebrow">PLEASE CONFIRM</p><h2 id="confirm-title"></h2><p id="confirm-description"></p><div class="button-row"><button class="button secondary" id="confirm-no" type="button">Keep as is</button><button class="button primary" id="confirm-yes" type="button">Confirm</button></div></dialog>
+  <dialog id="link-dialog" class="link-dialog" aria-labelledby="link-title"><button type="button" class="dialog-close" id="close-link" aria-label="Close private link">×</button><p class="eyebrow">PRIVATE MANAGEMENT LINK</p><h2 id="link-title">A fresh way back in.</h2><p id="link-person"></p><p class="notice">The previous management link is now revoked. Anyone with this new link can view, edit, or cancel this RSVP. Share it privately with the alumnus.</p><label for="management-link">New management link</label><input id="management-link" type="text" readonly autocomplete="off" spellcheck="false"><div class="button-row"><button class="button primary" id="copy-link" type="button">Copy private link</button><button class="button secondary" id="done-link" type="button">Done</button></div><p id="copy-message" role="status">Copy it before closing. It will not be displayed again.</p></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="/src/admin.ts"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- THROWAWAY: three reunion UI concepts on one route, switchable via ?variant=A|B|C. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#124e5b">
+  <title>MTRS 95/97 · Reunion design studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
+  <link rel="stylesheet" href="/variants/a.css">
+  <link rel="stylesheet" href="/variants/b.css">
+  <link rel="stylesheet" href="/variants/c.css">
+  <script src="/prototype-config.js"></script>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#rsvp">Skip to RSVP</a>
+  <div id="app"></div>
+  <div id="prototype-tools"></div>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <dialog id="confirmation" class="confirmation" aria-labelledby="confirmation-title"></dialog>
+</body>
+</html>
