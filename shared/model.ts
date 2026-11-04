@@ -1,6 +1,6 @@
 export const PLANS = ['2_night', '1_night', 'day_attendee'] as const;
 export type Plan = typeof PLANS[number];
-export const DIETS = ['Veg', 'Non-Veg', 'Jain', 'Vegan', 'Other / Allergies'] as const;
+export const DIETS = ['Veg', 'Non-Veg', 'Vegan', 'Other / Allergies'] as const;
 export const SHIRT_SIZES = ['S', 'M', 'L', 'XL', 'XXL'] as const;
 export type RegistrationStatus = 'confirmed' | 'cancelled';
 

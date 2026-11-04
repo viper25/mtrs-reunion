@@ -72,7 +72,7 @@ Build a user-friendly, validated form that dynamically adjusts fields based on t
   - Room Occupancy Preference: Single Occupancy, Double/Twin Sharing (with a batchmate)
   - Preferred Roommate Name (optional text input if Twin Sharing is selected).
 - **Event & Travel Preferences:**
-  - Dietary Preferences (`Veg`, `Non-Veg`, `Jain`, `Vegan`, `Other/Allergies`)
+  - Dietary Preferences (`Veg`, `Non-Veg`, `Vegan`, `Other/Allergies`)
   - T-Shirt Size (`S`, `M`, `L`, `XL`, `XXL`)
   - Flying In? (Checkbox/Toggle: "I am flying into Bangalore" + optional Arrival/Departure details or airport transfer interest)
   - Special Requests / Notes / Message for the organizers (textarea)

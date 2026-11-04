@@ -67,7 +67,7 @@ function photo(kind, label) {
     <path d="M111 170h62v76h-62zm106 0h62v76h-62zm205 0h62v76h-62zm107 0h62v76h-62z" fill="#bec8b3"/>
     <path d="M0 320h700v180H0Z" fill="#c2b99d"/>
     <path d="M0 382q250-40 700 20v98H0Z" fill="#9fae93"/>
-    ${[136,243,350,457,564].map((x,i)=>`<g transform="translate(${x} ${i%2?293:308})"><circle cy="0" r="24" fill="${i%2?'#a97f61':'#bb9472'}"/><path d="M-25-6a25 25 0 0 1 50 0v-13a25 20 0 0 0-50 0Z" fill="#4e5748"/><path d="M-43 92V53a43 43 0 0 1 86 0v39" fill="${i%2?'#edf0dc':'#d4dfd0'}"/><path d="m-15 31 15 20 15-20" fill="#839e93"/><path d="M-43 92h86" stroke="#7c8c7a" stroke-width="3"/></g>`).join('')}
+    ${[136, 243, 350, 457, 564].map((x, i) => `<g transform="translate(${x} ${i % 2 ? 293 : 308})"><circle cy="0" r="24" fill="${i % 2 ? '#a97f61' : '#bb9472'}"/><path d="M-25-6a25 25 0 0 1 50 0v-13a25 20 0 0 0-50 0Z" fill="#4e5748"/><path d="M-43 92V53a43 43 0 0 1 86 0v39" fill="${i % 2 ? '#edf0dc' : '#d4dfd0'}"/><path d="m-15 31 15 20 15-20" fill="#839e93"/><path d="M-43 92h86" stroke="#7c8c7a" stroke-width="3"/></g>`).join('')}
     <path d="M0 0h700v500H0Z" fill="#e1b56d" opacity=".08"/>
     <text x="350" y="470" text-anchor="middle" fill="#4e675a" font-family="sans-serif" font-size="12" letter-spacing="7">SAME PEOPLE. NEW STORIES.</text>
   `;
@@ -75,7 +75,7 @@ function photo(kind, label) {
 }
 
 function countdown() {
-  return `<div class="countdown" aria-label="Countdown to 6 August 2027, 2 pm India time">${['days','hours','minutes','seconds'].map((unit,i)=>`${i ? '<span class="countdown-separator" aria-hidden="true">:</span>' : ''}<div class="countdown-unit"><strong data-countdown="${unit}">00</strong><span>${unit}</span></div>`).join('')}</div>`;
+  return `<div class="countdown" aria-label="Countdown to 6 August 2027, 2 pm India time">${['days', 'hours', 'minutes', 'seconds'].map((unit, i) => `${i ? '<span class="countdown-separator" aria-hidden="true">:</span>' : ''}<div class="countdown-unit"><strong data-countdown="${unit}">00</strong><span>${unit}</span></div>`).join('')}</div>`;
 }
 
 function travel() {
@@ -86,35 +86,35 @@ function travel() {
   </div>`;
 }
 
-const input = (name,label,type='text',placeholder='',extra='') => `<div class="field"><label for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" placeholder="${placeholder}" ${extra}></div>`;
-const select = (name,label,options) => `<div class="field"><label for="${name}">${label} <span>(optional)</span></label><select id="${name}" name="${name}"><option value="">Choose an option</option>${options.map(x=>`<option>${x}</option>`).join('')}</select></div>`;
+const input = (name, label, type = 'text', placeholder = '', extra = '') => `<div class="field"><label for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" placeholder="${placeholder}" ${extra}></div>`;
+const select = (name, label, options) => `<div class="field"><label for="${name}">${label} <span>(optional)</span></label><select id="${name}" name="${name}"><option value="">Choose an option</option>${options.map(x => `<option>${x}</option>`).join('')}</select></div>`;
 function registration({ layout = 'single' } = {}) {
   return `<form class="rsvp-form" id="registration-form" data-layout="${layout}" novalidate>
     <p class="form-preview-note"><span class="form-preview-dot"></span>Design preview · Use sample details. Nothing is submitted.</p>
-    <div class="form-steps" ${layout==='single'?'hidden':''} aria-label="Registration progress">${['You','Your stay','Preferences','Review'].map((x,i)=>`<span data-step-label="${i+1}"><i>${i+1}</i>${x}</span>`).join('')}</div>
+    <div class="form-steps" ${layout === 'single' ? 'hidden' : ''} aria-label="Registration progress">${['You', 'Your stay', 'Preferences', 'Review'].map((x, i) => `<span data-step-label="${i + 1}"><i>${i + 1}</i>${x}</span>`).join('')}</div>
     <div class="form-message" role="alert" hidden></div>
     <fieldset class="form-section" data-stage="1"><legend>A few familiar details</legend><p class="field-note">One RSVP per alumnus. Fields marked * are required.</p>
       <div class="field-grid">
-        ${input('fullName','Full name *','text','The name your batchmates know','required minlength="2" maxlength="100" autocomplete="name"')}
-        ${input('email','Email address *','email','you@example.com','required maxlength="254" autocomplete="email"')}
-        ${input('phone','Mobile / WhatsApp *','tel','+91 98765 43210','required maxlength="25" autocomplete="tel" aria-describedby="phone-help"')}
-        ${input('residence','Current city / country *','text','Singapore, Singapore','required minlength="2" maxlength="150" autocomplete="address-level2"')}
+        ${input('fullName', 'Full name *', 'text', 'The name your batchmates know', 'required minlength="2" maxlength="100" autocomplete="name"')}
+        ${input('email', 'Email address *', 'email', 'you@example.com', 'required maxlength="254" autocomplete="email"')}
+        ${input('phone', 'Mobile / WhatsApp *', 'tel', '+91 98765 43210', 'required maxlength="25" autocomplete="tel" aria-describedby="phone-help"')}
+        ${input('residence', 'Current city / country *', 'text', 'Singapore, Singapore', 'required minlength="2" maxlength="150" autocomplete="address-level2"')}
       </div><p class="field-help" id="phone-help">Include your country code, such as +91, +65, or +1.</p>
     </fieldset>
     <fieldset class="form-section" data-stage="2"><legend>How will you join us?</legend><p class="field-note">Choose your time together. Rooms and payment are coordinated by the organizers.</p>
-      <div class="plan-radios">${Object.entries(plans).map(([key,p])=>`<label class="plan-radio" data-tier="${key}"><input type="radio" name="plan" value="${key}" required><strong>${p.title}</strong><small>${p.dates.replace('August 2027','Aug')}</small></label>`).join('')}</div>
+      <div class="plan-radios">${Object.entries(plans).map(([key, p]) => `<label class="plan-radio" data-tier="${key}"><input type="radio" name="plan" value="${key}" required><strong>${p.title}</strong><small>${p.dates.replace('August 2027', 'Aug')}</small></label>`).join('')}</div>
       <fieldset class="form-section stay-fields" data-conditional="stay" hidden disabled><legend>Make yourself at home</legend><p class="form-label">Room occupancy preference *</p>
         <div class="occupancy-group"><label><input type="radio" name="occupancy" value="single" required>Single occupancy</label><label><input type="radio" name="occupancy" value="twin" required>Double / twin sharing</label></div>
         <div class="field" data-conditional="roommate" hidden><label for="roommate">Preferred roommate <span>(optional)</span></label><input name="roommate" id="roommate" maxlength="100" placeholder="A batchmate’s name"><span class="field-help">Roommate requests will be coordinated by the organizing team.</span></div>
       </fieldset>
     </fieldset>
     <fieldset class="form-section" data-stage="3"><legend>The little things</legend><p class="field-note">These details are optional. Help us make the weekend yours.</p>
-      <div class="field-grid">${select('diet','Dietary preference',['Veg','Non-Veg','Jain','Vegan','Other / Allergies'])}${select('shirt','T-shirt size',['S','M','L','XL','XXL'])}
+      <div class="field-grid">${select('diet', 'Dietary preference', ['Veg', 'Non-Veg', 'Vegan', 'Other / Allergies'])}${select('shirt', 'T-shirt size', ['S', 'M', 'L', 'XL', 'XXL'])}
         <div class="field wide" data-conditional="allergies" hidden><label for="allergies">Dietary details / allergies <span>(optional)</span></label><input id="allergies" name="allergies" maxlength="500" placeholder="Anything the catering team should know"></div>
       </div>
       <label class="toggle-row"><input type="checkbox" name="flying" value="yes">${icon('plane')} I am flying into Bangalore</label>
       <fieldset class="form-section travel-fields" data-conditional="flying" hidden disabled><legend>Travel plans <span class="optional">(optional)</span></legend>
-        <div class="field-grid">${input('arrival','Arrival details','text','Date, time, flight','maxlength="200"')}${input('departure','Departure details','text','Date, time, flight','maxlength="200"')}</div>
+        <div class="field-grid">${input('arrival', 'Arrival details', 'text', 'Date, time, flight', 'maxlength="200"')}${input('departure', 'Departure details', 'text', 'Date, time, flight', 'maxlength="200"')}</div>
         <label class="toggle-row"><input type="checkbox" name="transfer" value="yes">I’m interested in an airport transfer</label>
       </fieldset>
       <div class="field"><label for="notes">A note for the organizers <span>(optional)</span></label><textarea id="notes" name="notes" maxlength="1500" placeholder="Special requests, a question, or just a hello…" rows="3"></textarea></div>
@@ -159,7 +159,7 @@ function updateConditional() {
   const stay = Boolean(state.plan && state.plan !== 'day_attendee');
   const occupancy = form.querySelector('[data-conditional="stay"]');
   occupancy.hidden = !stay; occupancy.disabled = !stay;
-  for (const [name,show] of [['roommate',stay && state.values.occupancy==='twin'],['flying',Boolean(state.values.flying)],['allergies',state.values.diet==='Other / Allergies']]) {
+  for (const [name, show] of [['roommate', stay && state.values.occupancy === 'twin'], ['flying', Boolean(state.values.flying)], ['allergies', state.values.diet === 'Other / Allergies']]) {
     const block = form.querySelector(`[data-conditional="${name}"]`);
     block.hidden = !show;
     if (block.tagName === 'FIELDSET') block.disabled = !show;
@@ -175,11 +175,11 @@ function updateConditional() {
 function updateStep() {
   const form = app.querySelector('form');
   const single = form.dataset.layout === 'single';
-  form.querySelectorAll('[data-stage]').forEach(el => { el.hidden = single ? (state.step === 4 ? el.dataset.stage !== '4' : el.dataset.stage === '4') : Number(el.dataset.stage)!==state.step; });
+  form.querySelectorAll('[data-stage]').forEach(el => { el.hidden = single ? (state.step === 4 ? el.dataset.stage !== '4' : el.dataset.stage === '4') : Number(el.dataset.stage) !== state.step; });
   form.querySelectorAll('[data-step-label]').forEach(el => {
     const n = Number(el.dataset.stepLabel);
     el.classList.toggle('current', n === state.step); el.classList.toggle('complete', n < state.step);
-    if (n===state.step) el.setAttribute('aria-current','step'); else el.removeAttribute('aria-current');
+    if (n === state.step) el.setAttribute('aria-current', 'step'); else el.removeAttribute('aria-current');
   });
   form.querySelector('[data-form-back]').hidden = state.step === 1;
   form.querySelector('[data-footer-label]').hidden = state.step > 1;
@@ -189,15 +189,15 @@ function updateStep() {
 
 function updateReview() {
   const v = state.values;
-  const pairs = [['Name',v.fullName],['Email',v.email],['WhatsApp',v.phone],['Home',v.residence],['Participation',plans[state.plan]?.title],['Dates',plans[state.plan]?.dates]];
-  if(state.plan !== 'day_attendee') pairs.push(['Room preference',v.occupancy==='twin'?'Double / twin sharing':'Single occupancy']);
-  if(state.plan !== 'day_attendee' && v.occupancy==='twin' && v.roommate) pairs.push(['Preferred roommate',v.roommate]);
-  if(v.diet) pairs.push(['Dietary preference',v.diet]);
-  if(v.diet==='Other / Allergies'&&v.allergies) pairs.push(['Dietary details',v.allergies]);
-  if(v.shirt) pairs.push(['T-shirt size',v.shirt]);
-  if(v.flying) { pairs.push(['Flying in','Yes']); if(v.arrival) pairs.push(['Arrival',v.arrival]); if(v.departure) pairs.push(['Departure',v.departure]); if(v.transfer) pairs.push(['Airport transfer','Interested']); }
-  if(v.notes) pairs.push(['Notes',v.notes]);
-  app.querySelector('[data-review-content]').innerHTML = `<dl>${pairs.map(([k,v])=>`<div><dt>${escape(k)}</dt><dd>${escape(v)}</dd></div>`).join('')}</dl>`;
+  const pairs = [['Name', v.fullName], ['Email', v.email], ['WhatsApp', v.phone], ['Home', v.residence], ['Participation', plans[state.plan]?.title], ['Dates', plans[state.plan]?.dates]];
+  if (state.plan !== 'day_attendee') pairs.push(['Room preference', v.occupancy === 'twin' ? 'Double / twin sharing' : 'Single occupancy']);
+  if (state.plan !== 'day_attendee' && v.occupancy === 'twin' && v.roommate) pairs.push(['Preferred roommate', v.roommate]);
+  if (v.diet) pairs.push(['Dietary preference', v.diet]);
+  if (v.diet === 'Other / Allergies' && v.allergies) pairs.push(['Dietary details', v.allergies]);
+  if (v.shirt) pairs.push(['T-shirt size', v.shirt]);
+  if (v.flying) { pairs.push(['Flying in', 'Yes']); if (v.arrival) pairs.push(['Arrival', v.arrival]); if (v.departure) pairs.push(['Departure', v.departure]); if (v.transfer) pairs.push(['Airport transfer', 'Interested']); }
+  if (v.notes) pairs.push(['Notes', v.notes]);
+  app.querySelector('[data-review-content]').innerHTML = `<dl>${pairs.map(([k, v]) => `<div><dt>${escape(k)}</dt><dd>${escape(v)}</dd></div>`).join('')}</dl>`;
 }
 
 function updatePlanButtons() {
@@ -206,7 +206,7 @@ function updatePlanButtons() {
     el.classList.toggle('is-selected', selected);
     el.setAttribute('aria-pressed', String(selected));
     const label = el.querySelector('[data-plan-label]');
-    if(label) label.textContent = selected ? 'Selected' : 'Select plan';
+    if (label) label.textContent = selected ? 'Selected' : 'Select plan';
   });
 }
 
@@ -214,9 +214,9 @@ function choosePlan(plan, scroll = false) {
   state.plan = plan;
   app.querySelectorAll('input[name="plan"]').forEach(el => el.checked = el.value === plan);
   updateConditional(); updatePlanButtons(); updateStatePanel();
-  if(scroll) {
+  if (scroll) {
     const form = app.querySelector('form');
-    if (form.dataset.layout !== 'single' && state.step === 4) { state.step=2; updateStep(); }
+    if (form.dataset.layout !== 'single' && state.step === 4) { state.step = 2; updateStep(); }
     app.querySelector('#rsvp').scrollIntoView({ behavior: 'smooth' });
     toast(`${plans[plan].title} selected. Complete your RSVP below.`);
   }
@@ -225,13 +225,13 @@ function choosePlan(plan, scroll = false) {
 function validSections(stageNumbers) {
   const form = app.querySelector('form');
   const phone = form.elements.phone;
-  const digits = phone.value.replace(/\D/g,'');
-  phone.setCustomValidity(phone.value && (!/^\+[\d\s().-]+$/.test(phone.value) || digits.length<8 || digits.length>15) ? 'Enter a phone number starting with + and a country code, with 8–15 digits in total.' : '');
+  const digits = phone.value.replace(/\D/g, '');
+  phone.setCustomValidity(phone.value && (!/^\+[\d\s().-]+$/.test(phone.value) || digits.length < 8 || digits.length > 15) ? 'Enter a phone number starting with + and a country code, with 8–15 digits in total.' : '');
   for (const stage of stageNumbers) {
     const section = form.querySelector(`[data-stage="${stage}"]`);
     for (const field of section.querySelectorAll('input,select,textarea')) {
       if (field.willValidate && !field.checkValidity()) {
-        if(form.dataset.layout !== 'single' || state.step === 4) { state.step=Number(stage); updateStep(); }
+        if (form.dataset.layout !== 'single' || state.step === 4) { state.step = Number(stage); updateStep(); }
         field.focus(); field.reportValidity(); updateStatePanel(); return false;
       }
     }
@@ -242,92 +242,92 @@ function validSections(stageNumbers) {
 function goStep(step) {
   state.step = step; updateStep(); updateStatePanel();
   const form = app.querySelector('form');
-  form.scrollIntoView({ behavior:'smooth', block:'start' });
-  form.querySelector(`[data-stage="${step}"] input, [data-stage="${step}"] h3`)?.focus({preventScroll:true});
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  form.querySelector(`[data-stage="${step}"] input, [data-stage="${step}"] h3`)?.focus({ preventScroll: true });
 }
 
 function toast(message) {
   const el = document.querySelector('#toast');
-  el.textContent=message; el.hidden=false; clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.hidden=true,4500);
+  el.textContent = message; el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => el.hidden = true, 4500);
 }
 
 function submit() {
   const form = app.querySelector('form');
   const button = form.querySelector('[data-submit]');
-  state.submission='loading'; button.disabled=true; button.innerHTML='<span class="spinner" aria-hidden="true"></span> Confirming…'; form.setAttribute('aria-busy','true'); updateStatePanel();
-  submissionTimer = setTimeout(()=>{
-    state.submission=state.outcome; button.disabled=false; form.removeAttribute('aria-busy'); updateStep();
-    if(state.outcome==='success') {
+  state.submission = 'loading'; button.disabled = true; button.innerHTML = '<span class="spinner" aria-hidden="true"></span> Confirming…'; form.setAttribute('aria-busy', 'true'); updateStatePanel();
+  submissionTimer = setTimeout(() => {
+    state.submission = state.outcome; button.disabled = false; form.removeAttribute('aria-busy'); updateStep();
+    if (state.outcome === 'success') {
       const first = state.values.fullName.trim().split(/\s+/)[0];
-      dialog.innerHTML=`<span class="eyebrow">Sample confirmation</span><div class="confirmation-mark">${icon('heart')}</div><span class="script">Old friends. New memories.</span><h2 id="confirmation-title">See you in Bangalore,<br>${escape(first)}!</h2><p>Your RSVP is confirmed for the <strong>${plans[state.plan].title.toLowerCase()}</strong>, ${plans[state.plan].dates}. The organizing team will coordinate rooms and payment separately.</p><button class="button button-primary" data-close-confirmation>Back to the reunion ${icon('arrow')}</button><small>This is a design preview. Your details have not been submitted or saved.</small>`;
+      dialog.innerHTML = `<span class="eyebrow">Sample confirmation</span><div class="confirmation-mark">${icon('heart')}</div><span class="script">Old friends. New memories.</span><h2 id="confirmation-title">See you in Bangalore,<br>${escape(first)}!</h2><p>Your RSVP is confirmed for the <strong>${plans[state.plan].title.toLowerCase()}</strong>, ${plans[state.plan].dates}. The organizing team will coordinate rooms and payment separately.</p><button class="button button-primary" data-close-confirmation>Back to the reunion ${icon('arrow')}</button><small>This is a design preview. Your details have not been submitted or saved.</small>`;
       dialog.showModal();
     } else {
-      const msg=form.querySelector('.form-message'); msg.hidden=false;
-      msg.innerHTML=state.outcome==='duplicate'?'<strong>You’re already on the list.</strong>This email already has an RSVP. Contact the organizing team if your plans have changed.<br><button type="button" data-edit-email>Try another email</button>':'<strong>We couldn’t send your RSVP.</strong>Your details are still here. Please try again.';
-      msg.scrollIntoView({behavior:'smooth',block:'center'});
+      const msg = form.querySelector('.form-message'); msg.hidden = false;
+      msg.innerHTML = state.outcome === 'duplicate' ? '<strong>You’re already on the list.</strong>This email already has an RSVP. Contact the organizing team if your plans have changed.<br><button type="button" data-edit-email>Try another email</button>' : '<strong>We couldn’t send your RSVP.</strong>Your details are still here. Please try again.';
+      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     updateStatePanel();
-  },950);
+  }, 950);
 }
 
 function cycleVariant(direction) {
-  if(state.submission==='loading') return toast('Let the sample submission finish before switching concepts.');
-  capture(); state.variant=Object.keys(variants)[(Object.keys(variants).indexOf(state.variant)+direction+3)%3];
-  const url = new URL(location.href); url.searchParams.set('variant',state.variant); url.hash=''; history.replaceState(null,'',url);
-  render(); window.scrollTo({top:0,behavior:'instant'});
+  if (state.submission === 'loading') return toast('Let the sample submission finish before switching concepts.');
+  capture(); state.variant = Object.keys(variants)[(Object.keys(variants).indexOf(state.variant) + direction + 3) % 3];
+  const url = new URL(location.href); url.searchParams.set('variant', state.variant); url.hash = ''; history.replaceState(null, '', url);
+  render(); window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 function renderTools() {
-  if(!window.__MTRS_PROTOTYPE__) { tools.innerHTML=''; return; }
-  tools.innerHTML=`<aside class="prototype-state" id="prototype-state" ${state.stateOpen?'':'hidden'}><h2>What are we evaluating?</h2><p>${variants[state.variant].question}</p><p>Flow: ${variants[state.variant].flow}. Every layout uses the same RSVP details. All form data stays in memory and clears on reload.</p><div class="state-actions"><button type="button" data-fill-sample>Fill sample details</button><button type="button" data-reset>Reset preview</button></div><label for="preview-outcome">Submission preview<select id="preview-outcome"><option value="success">Success</option><option value="duplicate">Email already registered</option><option value="error">Submission error</option></select></label><pre data-live-state></pre></aside><nav class="prototype-bar" aria-label="Prototype concept switcher"><div class="prototype-badge">Design prototype<span>Nothing is saved</span></div><button class="variant-arrow" data-cycle="-1" aria-label="Previous design concept">←</button><div class="variant-label">${state.variant} · ${variants[state.variant].name}<small>${Object.keys(variants).indexOf(state.variant)+1} / 3 · use ← → to explore</small></div><button class="variant-arrow" data-cycle="1" aria-label="Next design concept">→</button><button class="state-toggle" data-state-toggle aria-label="Design notes and preview controls" aria-controls="prototype-state" aria-expanded="${state.stateOpen}">${icon('plus')}</button></nav>`;
-  tools.querySelector('#preview-outcome').value=state.outcome; updateStatePanel();
+  if (!window.__MTRS_PROTOTYPE__) { tools.innerHTML = ''; return; }
+  tools.innerHTML = `<aside class="prototype-state" id="prototype-state" ${state.stateOpen ? '' : 'hidden'}><h2>What are we evaluating?</h2><p>${variants[state.variant].question}</p><p>Flow: ${variants[state.variant].flow}. Every layout uses the same RSVP details. All form data stays in memory and clears on reload.</p><div class="state-actions"><button type="button" data-fill-sample>Fill sample details</button><button type="button" data-reset>Reset preview</button></div><label for="preview-outcome">Submission preview<select id="preview-outcome"><option value="success">Success</option><option value="duplicate">Email already registered</option><option value="error">Submission error</option></select></label><pre data-live-state></pre></aside><nav class="prototype-bar" aria-label="Prototype concept switcher"><div class="prototype-badge">Design prototype<span>Nothing is saved</span></div><button class="variant-arrow" data-cycle="-1" aria-label="Previous design concept">←</button><div class="variant-label">${state.variant} · ${variants[state.variant].name}<small>${Object.keys(variants).indexOf(state.variant) + 1} / 3 · use ← → to explore</small></div><button class="variant-arrow" data-cycle="1" aria-label="Next design concept">→</button><button class="state-toggle" data-state-toggle aria-label="Design notes and preview controls" aria-controls="prototype-state" aria-expanded="${state.stateOpen}">${icon('plus')}</button></nav>`;
+  tools.querySelector('#preview-outcome').value = state.outcome; updateStatePanel();
 }
 
 function updateStatePanel() {
-  const pre=tools.querySelector('[data-live-state]');
-  if(pre) pre.textContent=JSON.stringify({concept:state.variant,name:variants[state.variant].name,formFlow:variants[state.variant].flow,step:state.step,participation:state.plan||'not selected',values:state.values,previewOutcome:state.outcome,submission:state.submission,persistence:'memory only'},null,2);
+  const pre = tools.querySelector('[data-live-state]');
+  if (pre) pre.textContent = JSON.stringify({ concept: state.variant, name: variants[state.variant].name, formFlow: variants[state.variant].flow, step: state.step, participation: state.plan || 'not selected', values: state.values, previewOutcome: state.outcome, submission: state.submission, persistence: 'memory only' }, null, 2);
 }
 
 function updateCountdown() {
-  const remaining=Math.max(0,Date.parse('2027-08-06T14:00:00+05:30')-Date.now());
-  const seconds=Math.floor(remaining/1000);
-  const values={days:Math.floor(seconds/86400),hours:Math.floor(seconds%86400/3600),minutes:Math.floor(seconds%3600/60),seconds:seconds%60};
-  app.querySelectorAll('[data-countdown]').forEach(el=>el.textContent=String(values[el.dataset.countdown]).padStart(2,'0'));
-  if(!remaining) app.querySelectorAll('.countdown').forEach(el=>el.setAttribute('aria-label','The reunion weekend is here!'));
+  const remaining = Math.max(0, Date.parse('2027-08-06T14:00:00+05:30') - Date.now());
+  const seconds = Math.floor(remaining / 1000);
+  const values = { days: Math.floor(seconds / 86400), hours: Math.floor(seconds % 86400 / 3600), minutes: Math.floor(seconds % 3600 / 60), seconds: seconds % 60 };
+  app.querySelectorAll('[data-countdown]').forEach(el => el.textContent = String(values[el.dataset.countdown]).padStart(2, '0'));
+  if (!remaining) app.querySelectorAll('.countdown').forEach(el => el.setAttribute('aria-label', 'The reunion weekend is here!'));
 }
 
-document.addEventListener('input',e=>{
-  if(e.target.closest('form')) { if(e.target.name==='phone') e.target.setCustomValidity(''); capture(); updateStatePanel(); }
+document.addEventListener('input', e => {
+  if (e.target.closest('form')) { if (e.target.name === 'phone') e.target.setCustomValidity(''); capture(); updateStatePanel(); }
 });
-document.addEventListener('change',e=>{
-  if(e.target.id==='preview-outcome') { state.outcome=e.target.value; state.submission='idle'; app.querySelector('.form-message').hidden=true; updateStatePanel(); }
-  else if(e.target.closest('form')) { capture(); if(e.target.name==='plan') choosePlan(e.target.value); updateConditional(); updateStatePanel(); }
+document.addEventListener('change', e => {
+  if (e.target.id === 'preview-outcome') { state.outcome = e.target.value; state.submission = 'idle'; app.querySelector('.form-message').hidden = true; updateStatePanel(); }
+  else if (e.target.closest('form')) { capture(); if (e.target.name === 'plan') choosePlan(e.target.value); updateConditional(); updateStatePanel(); }
 });
-document.addEventListener('submit',e=>{
-  if(e.target.id!=='registration-form') return;
-  e.preventDefault(); if(state.submission==='loading') return;
-  capture(); const single=e.target.dataset.layout==='single';
-  if(state.step===4) { if(validSections([1,2,3])) submit(); }
-  else if(validSections(single?[1,2,3]:[state.step])) goStep(single?4:state.step+1);
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'registration-form') return;
+  e.preventDefault(); if (state.submission === 'loading') return;
+  capture(); const single = e.target.dataset.layout === 'single';
+  if (state.step === 4) { if (validSections([1, 2, 3])) submit(); }
+  else if (validSections(single ? [1, 2, 3] : [state.step])) goStep(single ? 4 : state.step + 1);
 });
-document.addEventListener('click',e=>{
-  const el=e.target.closest('button,a'); if(!el) return;
-  if(el.hasAttribute('data-plan')) { e.preventDefault(); choosePlan(el.dataset.plan,true); }
-  else if(el.hasAttribute('data-brochure')) { e.preventDefault(); toast('Brochure placeholder — the hotel PDF will be added before launch.'); }
-  else if(el.hasAttribute('data-cycle')) cycleVariant(Number(el.dataset.cycle));
-  else if(el.hasAttribute('data-state-toggle')) { state.stateOpen=!state.stateOpen; renderTools(); }
-  else if(el.hasAttribute('data-form-back')) goStep(app.querySelector('form').dataset.layout==='single'?1:state.step-1);
-  else if(el.hasAttribute('data-change-plan')) { if(app.querySelector('form').dataset.layout!=='single') goStep(2); else app.querySelector('[data-stage="2"]').scrollIntoView({behavior:'smooth',block:'center'}); app.querySelector('input[name="plan"]')?.focus({preventScroll:true}); }
-  else if(el.hasAttribute('data-edit-email')) { goStep(1); app.querySelector('#email').focus(); }
-  else if(el.hasAttribute('data-close-confirmation')) dialog.close();
-  else if(el.hasAttribute('data-fill-sample')) { state.values={fullName:'Alex Mathew',email:'alex@example.com',phone:'+65 8123 4567',residence:'Singapore, Singapore',occupancy:'twin',roommate:'',diet:'Veg',shirt:'M',flying:true,arrival:'6 Aug · afternoon',departure:'8 Aug · evening',transfer:true,notes:''}; state.plan='2_night'; state.step=1; render(); toast('Sample details filled. Explore the RSVP form below.'); }
-  else if(el.hasAttribute('data-reset')) { clearTimeout(submissionTimer); state.plan=''; state.step=1; state.values={}; state.submission='idle'; state.outcome='success'; render(); toast('Preview reset. All sample details cleared.'); }
+document.addEventListener('click', e => {
+  const el = e.target.closest('button,a'); if (!el) return;
+  if (el.hasAttribute('data-plan')) { e.preventDefault(); choosePlan(el.dataset.plan, true); }
+  else if (el.hasAttribute('data-brochure')) { e.preventDefault(); toast('Brochure placeholder — the hotel PDF will be added before launch.'); }
+  else if (el.hasAttribute('data-cycle')) cycleVariant(Number(el.dataset.cycle));
+  else if (el.hasAttribute('data-state-toggle')) { state.stateOpen = !state.stateOpen; renderTools(); }
+  else if (el.hasAttribute('data-form-back')) goStep(app.querySelector('form').dataset.layout === 'single' ? 1 : state.step - 1);
+  else if (el.hasAttribute('data-change-plan')) { if (app.querySelector('form').dataset.layout !== 'single') goStep(2); else app.querySelector('[data-stage="2"]').scrollIntoView({ behavior: 'smooth', block: 'center' }); app.querySelector('input[name="plan"]')?.focus({ preventScroll: true }); }
+  else if (el.hasAttribute('data-edit-email')) { goStep(1); app.querySelector('#email').focus(); }
+  else if (el.hasAttribute('data-close-confirmation')) dialog.close();
+  else if (el.hasAttribute('data-fill-sample')) { state.values = { fullName: 'Alex Mathew', email: 'alex@example.com', phone: '+65 8123 4567', residence: 'Singapore, Singapore', occupancy: 'twin', roommate: '', diet: 'Veg', shirt: 'M', flying: true, arrival: '6 Aug · afternoon', departure: '8 Aug · evening', transfer: true, notes: '' }; state.plan = '2_night'; state.step = 1; render(); toast('Sample details filled. Explore the RSVP form below.'); }
+  else if (el.hasAttribute('data-reset')) { clearTimeout(submissionTimer); state.plan = ''; state.step = 1; state.values = {}; state.submission = 'idle'; state.outcome = 'success'; render(); toast('Preview reset. All sample details cleared.'); }
 });
-document.addEventListener('keydown',e=>{
-  if(e.altKey||e.ctrlKey||e.metaKey||dialog.open||e.target.closest('input,textarea,select,[contenteditable], [role="textbox"]')) return;
-  if(e.key==='ArrowLeft'||e.key==='ArrowRight') { e.preventDefault(); cycleVariant(e.key==='ArrowLeft'?-1:1); }
+document.addEventListener('keydown', e => {
+  if (e.altKey || e.ctrlKey || e.metaKey || dialog.open || e.target.closest('input,textarea,select,[contenteditable], [role="textbox"]')) return;
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); cycleVariant(e.key === 'ArrowLeft' ? -1 : 1); }
 });
-window.addEventListener('popstate',()=>{capture();const key=new URLSearchParams(location.search).get('variant');state.variant=variants[key]?key:'A';render();});
-dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-const initialUrl=new URL(location.href); initialUrl.searchParams.set('variant',state.variant); history.replaceState(null,'',initialUrl);
-render(); setInterval(updateCountdown,1000);
+window.addEventListener('popstate', () => { capture(); const key = new URLSearchParams(location.search).get('variant'); state.variant = variants[key] ? key : 'A'; render(); });
+dialog.addEventListener('click', e => { if (e.target === dialog) { const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close(); } });
+const initialUrl = new URL(location.href); initialUrl.searchParams.set('variant', state.variant); history.replaceState(null, '', initialUrl);
+render(); setInterval(updateCountdown, 1000);
