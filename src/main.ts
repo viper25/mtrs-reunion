@@ -63,7 +63,7 @@ app.innerHTML = `
             <div>
               <div class="hero-eyebrow"><span class="dot-indicator green"></span> MTRS 95/97 · 30-YEAR REUNION</div>
               <h1 class="hero-title" id="hero-title">Old friends. A whole new set of <span class="script">memories.</span></h1>
-              <p class="hero-subtitle">Three days of laughter, catch-ups, and nostalgia at Royal Orchid, Bangalore. 6–8 August 2027.</p>
+              <p class="hero-subtitle">Relive school days of laughter, catch-ups, and nostalgia at Royal Orchid, Bangalore. 6–8 August 2027.</p>
             </div>
             <div class="hero-photo-showcase" aria-label="Reunion memories">
               <figure class="polaroid-card">
@@ -82,7 +82,7 @@ app.innerHTML = `
           <!-- 4 KPI Metrics Row -->
           <div class="kpi-row">
             <div class="kpi-item">
-              <span class="kpi-label">Event dates</span>
+              <span class="kpi-label">Reunion dates</span>
               <div class="kpi-value-row">
                 <span class="kpi-number font-22">6–8 Aug 2027</span>
               </div>
