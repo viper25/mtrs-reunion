@@ -94,7 +94,7 @@ app.innerHTML = `
               <div class="kpi-value-row">
                 <span class="kpi-number font-22">Royal Orchid</span>
               </div>
-              <span class="kpi-subtext">Old Airport Road, Bangalore</span>
+              <span class="kpi-subtext">Resort & Convention Centre, Yelahanka</span>
             </div>
 
             <div class="kpi-item" data-countdown aria-live="off">
@@ -191,18 +191,18 @@ app.innerHTML = `
         <div class="limits-grid">
           <div class="limit-card">
             <div class="limit-card-img-wrap">
-              <img src="/assets/venue-placeholder.svg" alt="Hotel Royal Orchid Bangalore" class="limit-card-img" width="400" height="140" />
+              <img src="/assets/royal-orchid.jpg" alt="Royal Orchid Resort & Convention Centre Bangalore" class="limit-card-img" width="400" height="140" loading="lazy" />
             </div>
-            <span class="limit-card-label"><span class="dot-indicator green"></span> Royal Orchid, Bangalore</span>
-            <p class="limit-card-desc">Old Airport Road · Adjacent to KGA Golf Course. Resort ambiance, sprawling gardens, fine dining, and rooftop pool for our reunion catch-ups.</p>
-            <a class="limit-card-link" href="https://www.royalorchidhotels.com/hotel-royal-orchid-bangalore/overview" target="_blank" rel="noopener noreferrer">
+            <span class="limit-card-label"><span class="dot-indicator green"></span> Royal Orchid Resort & Convention Centre</span>
+            <p class="limit-card-desc">Near Jakkur Flying Club, Bellary Road, Yelahanka. 8 acres of lush green lawns, resort cottages, swimming pool, and grand convention hall for our reunion catch-ups.</p>
+            <a class="limit-card-link" href="https://www.royalorchidhotels.com/royal-orchid-resort-convention-centre-bangalore/overview" target="_blank" rel="noopener noreferrer">
               Hotel details ↗
             </a>
           </div>
 
           <div class="limit-card">
             <span class="limit-card-label"><span class="dot-indicator blue"></span> Getting Here from BLR</span>
-            <p class="limit-card-desc">Kempegowda Airport ~40 km away. Direct airport taxis and BMTC airport shuttle buses available. Note your airport transfer interest in your RSVP.</p>
+            <p class="limit-card-desc">Kempegowda Airport ~25 km away via Airport Highway (Bellary Road). Direct airport taxis and BMTC airport shuttle buses available. Note your airport transfer interest in your RSVP.</p>
             <a class="limit-card-link" href="https://kstdc.co/airport-taxi-bangalore/" target="_blank" rel="noopener noreferrer">
               Airport transport info ↗
             </a>
