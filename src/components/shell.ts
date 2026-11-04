@@ -3,11 +3,6 @@ import { icon } from './icons';
 export function wordmark(href = '/'): string {
   return `
     <a class="wordmark" href="${href}" aria-label="MTRS 95/97 reunion home">
-      <div class="brand-logo-combo">
-        <div class="logo-badge" title="MTRS Reunion">M</div>
-        <div class="hp-badge" title="Batch '95/'97">hp</div>
-      </div>
-      <span class="brand-divider">|</span>
       <span class="brand-title">MTRS <strong>95/97</strong></span>
     </a>`;
 }

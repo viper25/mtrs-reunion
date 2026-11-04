@@ -107,7 +107,8 @@ a {
 .brand-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
 .brand-logo-combo {
@@ -150,10 +151,11 @@ a {
 }
 
 .brand-title {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: var(--teal);
+  white-space: nowrap;
 }
 
 .nav-tabs {

@@ -150,6 +150,7 @@ svg.icon {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .brand-logo-combo {
@@ -191,10 +192,11 @@ svg.icon {
 }
 
 .brand-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--teal);
+  white-space: nowrap;
 }
 
 .desktop-nav {
