@@ -1261,10 +1261,17 @@ dialog::backdrop {
 }
 
 @media (max-width: 768px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
   .top-header-inner {
     height: auto;
     padding-block: 12px;
     flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-timestamp {
+    display: none !important;
   }
   .nav-tabs {
     order: 3;
@@ -1275,15 +1282,42 @@ dialog::backdrop {
   }
   .header-right {
     margin-left: auto;
+    gap: 8px;
+  }
+  .hero-card-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .hero-title {
     font-size: 26px;
+  }
+  .hero-photo-showcase {
+    width: 100%;
+    justify-content: center;
+    margin-top: 14px;
+  }
+  .polaroid-card {
+    width: 140px;
+  }
+  .polaroid-img {
+    height: 90px;
   }
   .tiers-grid {
     grid-template-columns: 1fr;
   }
   .kpi-row {
     grid-template-columns: 1fr;
+  }
+  .action-pills-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .action-pills-row .btn-pill,
+  .action-pills-row button,
+  .action-pills-row a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
   .table-toolbar {
     flex-direction: column;
