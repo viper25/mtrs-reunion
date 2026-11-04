@@ -249,10 +249,11 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
       return methodNotAllowed('GET, PUT');
     }
     if (path === '/api/manage/cancel') return method === 'POST' ? await cancelManage(request, env) : methodNotAllowed('POST');
-    if (path === '/api/admin' || path.startsWith('/api/admin/')) {
+    const adminPath = path.startsWith('/admin/api') ? path.replace('/admin/api', '/api/admin') : path;
+    if (adminPath === '/api/admin' || adminPath.startsWith('/api/admin/')) {
       const email = await authenticateAdmin(request, env);
-      if (path === '/api/admin/session') return method === 'GET' ? json({ email }) : methodNotAllowed('GET');
-      if (path === '/api/admin/settings') {
+      if (adminPath === '/api/admin/session') return method === 'GET' ? json({ email }) : methodNotAllowed('GET');
+      if (adminPath === '/api/admin/settings') {
         if (method === 'GET') return json({ registrationOpen: await registrationOpen(env.DB) });
         if (method !== 'PATCH') return methodNotAllowed('GET, PATCH');
         const source = await readBody(request);
@@ -260,9 +261,9 @@ export async function handleApi(request: Request, env: Env): Promise<Response> {
         await env.DB.prepare('UPDATE event_settings SET registration_open = ? WHERE id = 1').bind(source.registrationOpen ? 1 : 0).run();
         return json({ registrationOpen: source.registrationOpen });
       }
-      if (path === '/api/admin/registrations') return method === 'GET' ? await listRegistrations(url, env) : methodNotAllowed('GET');
-      if (path === '/api/admin/export') return method === 'GET' ? await exportRegistrations(url, env) : methodNotAllowed('GET');
-      const match = /^\/api\/admin\/registrations\/([a-f0-9-]{36})(\/link)?$/.exec(path);
+      if (adminPath === '/api/admin/registrations') return method === 'GET' ? await listRegistrations(url, env) : methodNotAllowed('GET');
+      if (adminPath === '/api/admin/export') return method === 'GET' ? await exportRegistrations(url, env) : methodNotAllowed('GET');
+      const match = /^\/api\/admin\/registrations\/([a-f0-9-]{36})(\/link)?$/.exec(adminPath);
       if (match) {
         if (match[2]) return method === 'POST' ? await adminLink(env, match[1]) : methodNotAllowed('POST');
         return method === 'PUT' ? await adminUpdate(request, env, match[1]) : methodNotAllowed('PUT');

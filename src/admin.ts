@@ -124,7 +124,7 @@ function filterParams(includePage = false): URLSearchParams {
 
 function updateExport(): void {
   const query = filterParams().toString();
-  const url = `/api/admin/export${query ? `?${query}` : ''}`;
+  const url = `/admin/api/export${query ? `?${query}` : ''}`;
   $<HTMLAnchorElement>('#export-csv').href = url;
   const link2 = document.querySelector<HTMLAnchorElement>('#all-requests-link');
   if (link2) link2.href = url;
@@ -284,7 +284,7 @@ async function loadList(): Promise<void> {
   tableState('loading'); updateExport();
   $('#results-count').textContent = 'Loading RSVPs…';
   try {
-    const data = await request<RegistrationList>(`/api/admin/registrations?${filterParams(true)}`, { signal: controller.signal });
+    const data = await request<RegistrationList>(`/admin/api/registrations?${filterParams(true)}`, { signal: controller.signal });
     if (controller.signal.aborted || !authenticated) return;
     registrations = data.registrations; total = data.total; page = data.page; pageSize = data.pageSize;
     const maxPage = Math.max(1, Math.ceil(total / pageSize));
@@ -382,7 +382,7 @@ function roomLabel(record: Registration): string { return record.plan === 'day_a
 
 async function loadSettings(): Promise<void> {
   try {
-    const data = await request<{ registrationOpen: boolean }>('/api/admin/settings');
+    const data = await request<{ registrationOpen: boolean }>('/admin/api/settings');
     if (!authenticated) return;
     registrationOpen = data.registrationOpen; renderSettings();
   } catch (error) {
@@ -427,7 +427,7 @@ function setTab(tab: 'overview' | 'requests'): void {
 async function bootstrap(): Promise<void> {
   $('#access-state').hidden = true; $('#boot-state').hidden = false;
   try {
-    const session = await request<{ email: string }>('/api/admin/session');
+    const session = await request<{ email: string }>('/admin/api/session');
     authenticated = true;
     $('#session-email').textContent = session.email;
     $('#boot-state').hidden = true; $('#admin-content').hidden = false;
@@ -644,7 +644,7 @@ async function saveRecord(input: RegistrationInput & { status: Registration['sta
   if (!selected || busyRecord) return;
   setRecordBusy(true);
   try {
-    const result = await request<{ registration: Registration }>(`/api/admin/registrations/${encodeURIComponent(selected.id)}`, {
+    const result = await request<{ registration: Registration }>(`/admin/api/registrations/${encodeURIComponent(selected.id)}`, {
       method: 'PUT',
       body: JSON.stringify({ ...input, version: selected.version }),
     });
@@ -674,7 +674,7 @@ async function rotateLink(): Promise<void> {
   if (!confirmed || !authenticated) return;
   setRecordBusy(true);
   try {
-    const data = await request<{ managementToken: string }>(`/api/admin/registrations/${encodeURIComponent(r.id)}/link`, { method: 'POST' });
+    const data = await request<{ managementToken: string }>(`/admin/api/registrations/${encodeURIComponent(r.id)}/link`, { method: 'POST' });
     if (!authenticated) return;
     attendeeDialog.close();
     const link = `${location.origin}/manage/#token=${encodeURIComponent(data.managementToken)}`;
@@ -717,7 +717,7 @@ $('#registration-toggle').addEventListener('click', async () => {
   if (!next && !(await confirmAction('Pause approvals / registration?', 'Public registrations will pause.', 'Pause approvals', true))) return;
   const button = $<HTMLButtonElement>('#registration-toggle'); button.disabled = true; button.textContent = 'Saving…';
   try {
-    const result = await request<{ registrationOpen: boolean }>('/api/admin/settings', { method: 'PATCH', body: JSON.stringify({ registrationOpen: next }) });
+    const result = await request<{ registrationOpen: boolean }>('/admin/api/settings', { method: 'PATCH', body: JSON.stringify({ registrationOpen: next }) });
     if (!authenticated) return;
     registrationOpen = result.registrationOpen; dashboardMessage(''); renderSettings();
     notify(next ? 'Approvals are active.' : 'Approvals are paused.');
