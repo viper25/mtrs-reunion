@@ -68,13 +68,13 @@ app.innerHTML = `
             <div class="hero-photo-showcase" aria-label="Reunion memories">
               <figure class="polaroid-card">
                 <div class="tape" aria-hidden="true"></div>
-                <img class="polaroid-img" src="/assets/class-memory-placeholder.svg" alt="MTRS Batch Memory" width="175" height="110" />
+                <img class="polaroid-img" src="/assets/class-photo.jpg" alt="MTRS Class Photo" width="155" height="98" />
                 <figcaption class="polaroid-caption">Remember this lot? ♡</figcaption>
               </figure>
               <figure class="polaroid-card polaroid-venue">
                 <div class="tape" aria-hidden="true"></div>
-                <img class="polaroid-img" src="/assets/venue-placeholder.svg" alt="Royal Orchid Hotel Bangalore" width="175" height="110" />
-                <figcaption class="polaroid-caption">Royal Orchid, BLR</figcaption>
+                <img class="polaroid-img" src="/assets/batch-photo.jpg" alt="MTRS Batch Memory" width="155" height="98" />
+                <figcaption class="polaroid-caption">Those were the days! ♡</figcaption>
               </figure>
             </div>
           </div>
