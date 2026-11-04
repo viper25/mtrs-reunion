@@ -464,6 +464,7 @@ function openAttendee(record: Registration): void {
 
 function renderAttendee(): void {
   if (!selected) return;
+  attendeeDialog.scrollTop = 0;
   const r = selected;
   $('#attendee-content').innerHTML = `
     <div class="dialog-header">
@@ -517,6 +518,7 @@ function input(name: keyof RegistrationInput, label: string, value: string, extr
 
 function renderEditor(): void {
   if (!selected) return;
+  attendeeDialog.scrollTop = 0;
   const r = selected;
   $('#attendee-content').innerHTML = `
     <div class="dialog-header">

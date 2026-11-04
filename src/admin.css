@@ -188,6 +188,7 @@ a {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-left: auto;
 }
 
 .badge-status-pill {
@@ -1264,34 +1265,95 @@ dialog::backdrop {
 
 @media (max-width: 768px) {
   .shell {
-    width: calc(100% - 32px);
+    width: calc(100% - 24px);
   }
+
+  /* Top App Navigation Bar */
   .top-header-inner {
     height: auto;
-    padding-block: 12px;
+    padding-block: 10px;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px 12px;
+    align-items: center;
+  }
+  .brand-group {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .brand-title {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  .header-right {
+    flex-shrink: 0;
+    margin-left: auto;
+    gap: 6px;
+    align-items: center;
   }
   .header-timestamp {
     display: none !important;
+  }
+  .header-user-tag {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+  .badge-status-pill {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+  .header-ext-link {
+    font-size: 11px;
+    padding: 3px 6px;
   }
   .nav-tabs {
     order: 3;
     width: 100%;
     margin-left: 0;
+    display: flex;
+    gap: 6px;
     overflow-x: auto;
-    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 2px;
   }
-  .header-right {
-    margin-left: auto;
-    gap: 8px;
+  .nav-tab-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Main Layout */
+  .main-wrap {
+    padding-block: 16px 32px;
+  }
+
+  /* Overview Tab */
+  .hero-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+    margin-bottom: 20px;
   }
   .hero-card-header {
     flex-direction: column;
     align-items: flex-start;
   }
+  .hero-eyebrow {
+    font-size: 10px;
+  }
   .hero-title {
-    font-size: 26px;
+    font-size: 24px;
+    margin-top: 4px;
+  }
+  .hero-subtitle {
+    font-size: 13px;
+    margin-top: 6px;
   }
   .hero-photo-showcase {
     width: 100%;
@@ -1304,11 +1366,32 @@ dialog::backdrop {
   .polaroid-img {
     height: 90px;
   }
-  .tiers-grid {
-    grid-template-columns: 1fr;
-  }
   .kpi-row {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .kpi-item {
+    padding: 14px 16px;
+  }
+  .kpi-number {
+    font-size: 28px;
+  }
+  .tiers-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 16px;
+  }
+  .tier-col {
+    padding: 14px 16px;
+  }
+  .limits-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .limit-card {
+    padding: 16px 18px;
+    border-radius: 16px;
   }
   .action-pills-row {
     flex-direction: column;
@@ -1321,15 +1404,181 @@ dialog::backdrop {
     text-align: center;
     justify-content: center;
   }
+
+  /* Alumni Residence & Chapters Breakdown */
+  .orgs-card {
+    padding: 18px 16px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+  }
+  .orgs-card-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+  .orgs-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .org-row {
+    grid-template-columns: 105px 36px 34px 1fr;
+    gap: 6px;
+    font-size: 11px;
+  }
+  .org-name {
+    font-size: 11px;
+  }
+  .org-count {
+    font-size: 11px;
+  }
+  .org-pct {
+    font-size: 11px;
+  }
+  .orgs-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 14px;
+    margin-top: 14px;
+    font-size: 10px;
+  }
+  .orgs-legend-items {
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  /* Table Card & Toolbar */
+  .table-card {
+    border-radius: 18px;
+  }
+  .table-card-header {
+    padding: 18px 16px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .table-title {
+    font-size: 17px;
+  }
   .table-toolbar {
+    padding: 12px 16px 16px;
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
   }
   .search-and-selects {
+    width: 100%;
+    min-width: 0;
     flex-direction: column;
+    gap: 8px;
+  }
+  .search-box-pill {
+    max-width: 100%;
+    width: 100%;
+  }
+  .search-box-pill input {
+    width: 100%;
+  }
+  .select-pill {
+    width: 100%;
+  }
+  .pad-clear {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
   .pagination-group {
+    width: 100%;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+  }
+  table thead th:first-child, table tbody td:first-child {
+    padding-left: 16px;
+  }
+  table thead th:last-child, table tbody td:last-child {
+    padding-right: 16px;
+  }
+  thead th, tbody td {
+    padding: 12px 14px;
+  }
+
+  /* Modals & Dialogs */
+  dialog {
+    padding: 20px 16px;
+    border-radius: 18px;
+    width: calc(100% - 24px) !important;
+    max-height: 88dvh;
+    box-sizing: border-box;
+  }
+  .attendee-dialog {
+    width: calc(100% - 24px) !important;
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+  .dialog-header {
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .dialog-close-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+  .detail-list {
+    margin: 0 0 16px;
+  }
+  .detail-row {
+    grid-template-columns: 105px 1fr;
+    padding: 8px 0;
+    font-size: 12px;
+    word-break: break-word;
+  }
+  .field-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .dialog-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 16px;
+  }
+  .dialog-actions-row .btn-pill {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .dialog-confirm {
+    width: calc(100% - 24px) !important;
+    padding: 20px 16px;
+  }
+  .dialog-link {
+    width: calc(100% - 24px) !important;
+    padding: 20px 16px;
+  }
+  .dialog-confirm .flex-center,
+  .dialog-link .flex-center {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .dialog-confirm .btn-pill,
+  .dialog-link .btn-pill {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }
 
