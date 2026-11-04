@@ -146,7 +146,7 @@ app.innerHTML = `
                 <li>${icon('check')} 8 Aug: Farewell breakfast & check-out</li>
               </ul>
               <button type="button" class="tier-action-btn" data-plan="2_night" aria-pressed="false">
-                <span data-plan-label>Select Plan</span> ${icon('arrowUpRight')}
+                <span data-plan-label>Select Option</span> ${icon('arrowUpRight')}
               </button>
             </article>
 
@@ -160,7 +160,7 @@ app.innerHTML = `
                 <li>${icon('check')} 8 Aug: Farewell breakfast & check-out</li>
               </ul>
               <button type="button" class="tier-action-btn" data-plan="1_night" aria-pressed="false">
-                <span data-plan-label>Select Plan</span> ${icon('arrowUpRight')}
+                <span data-plan-label>Select Option</span> ${icon('arrowUpRight')}
               </button>
             </article>
 
@@ -173,7 +173,7 @@ app.innerHTML = `
                 <li>${icon('check')} 7 Aug: Join main event & celebrations</li>
               </ul>
               <button type="button" class="tier-action-btn" data-plan="day_attendee" aria-pressed="false">
-                <span data-plan-label>Select Plan</span> ${icon('arrowUpRight')}
+                <span data-plan-label>Select Option</span> ${icon('arrowUpRight')}
               </button>
             </article>
           </div>
@@ -281,7 +281,7 @@ function updateSelectedPlan(): void {
     const active = button.dataset.plan === selectedPlan;
     button.setAttribute('aria-pressed', String(active));
     button.closest('.plan-card')?.classList.toggle('is-selected', active);
-    button.querySelector<HTMLElement>('[data-plan-label]')!.textContent = eventSettings && !eventSettings.registrationOpen ? 'Registration closed' : active ? 'Selected' : 'Select Plan';
+    button.querySelector<HTMLElement>('[data-plan-label]')!.textContent = eventSettings && !eventSettings.registrationOpen ? 'Registration closed' : active ? 'Selected' : 'Select Option';
   });
 }
 
