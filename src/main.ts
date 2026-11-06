@@ -31,6 +31,7 @@ app.innerHTML = `
           <a href="#weekend">The Weekend</a>
           <a href="#venue">Venue & Stay</a>
           <a href="#plans">Ways to Join</a>
+          <a href="#financials">Financials</a>
           <a href="#rsvp">RSVP</a>
         </nav>
       </div>
@@ -50,6 +51,7 @@ app.innerHTML = `
       <a href="#weekend">The Weekend</a>
       <a href="#venue">Venue & Stay</a>
       <a href="#plans">Ways to Join</a>
+      <a href="#financials">Financials & Costs</a>
       <a href="#rsvp">Register your RSVP</a>
       <a href="/manage/">Manage Existing RSVP ↗</a>
       <a href="/admin/">Organizer Desk ↗</a>
@@ -128,6 +130,7 @@ app.innerHTML = `
             <a href="#rsvp" class="btn-pill btn-black">Register Your Stay ↓</a>
             <a href="#weekend" class="btn-pill btn-white">Weekend Programme</a>
             <a href="#venue" class="btn-pill btn-white">Venue Details</a>
+            <a href="#financials" class="btn-pill btn-white">Cost Breakdown</a>
             <a href="/manage/" class="btn-pill btn-white">Already Registered? ↗</a>
             ${brochure()}
           </div>
@@ -138,6 +141,7 @@ app.innerHTML = `
               <span class="preferred-tag">${icon('star')} Preferred Option</span>
               <div class="tier-top">
                 <span class="tier-name"><span class="dot-indicator purple"></span> 2-night stay</span>
+                <span class="tier-price-chip">Est. from ₹18,500</span>
               </div>
               <span class="tier-dates">6–8 August 2027</span>
               <ul class="tier-details-list">
@@ -145,7 +149,7 @@ app.innerHTML = `
                 <li>${icon('check')} 7 Aug: Main reunion celebrations 🎉</li>
                 <li>${icon('check')} 8 Aug: Farewell breakfast & check-out</li>
               </ul>
-              <button type="button" class="tier-action-btn" data-plan="2_night" aria-pressed="false">
+              <button type="button" class="tier-action-btn" data-plan="2_night" data-default-label="Select Option" aria-pressed="false">
                 <span data-plan-label>Select Option</span> ${icon('arrowUpRight')}
               </button>
             </article>
@@ -153,13 +157,14 @@ app.innerHTML = `
             <article class="tier-col plan-card plan-mint">
               <div class="tier-top">
                 <span class="tier-name"><span class="dot-indicator blue"></span> 1-night stay</span>
+                <span class="tier-price-chip">Est. from ₹11,500</span>
               </div>
               <span class="tier-dates">7–8 August 2027</span>
               <ul class="tier-details-list">
                 <li>${icon('check')} 7 Aug: Check-in & reunion celebrations 🎉</li>
                 <li>${icon('check')} 8 Aug: Farewell breakfast & check-out</li>
               </ul>
-              <button type="button" class="tier-action-btn" data-plan="1_night" aria-pressed="false">
+              <button type="button" class="tier-action-btn" data-plan="1_night" data-default-label="Select Option" aria-pressed="false">
                 <span data-plan-label>Select Option</span> ${icon('arrowUpRight')}
               </button>
             </article>
@@ -167,18 +172,19 @@ app.innerHTML = `
             <article class="tier-col plan-card plan-peach">
               <div class="tier-top">
                 <span class="tier-name"><span class="dot-indicator amber"></span> Day attendee</span>
+                <span class="tier-price-chip">Est. ₹5,500</span>
               </div>
               <span class="tier-dates">7 August 2027</span>
               <ul class="tier-details-list">
                 <li>${icon('check')} 7 Aug: Join main event & celebrations</li>
               </ul>
-              <button type="button" class="tier-action-btn" data-plan="day_attendee" aria-pressed="false">
+              <button type="button" class="tier-action-btn" data-plan="day_attendee" data-default-label="Select Option" aria-pressed="false">
                 <span data-plan-label>Select Option</span> ${icon('arrowUpRight')}
               </button>
             </article>
           </div>
 
-          <p class="hero-footer-note">Limits and room coordination are managed by the organizing committee.</p>
+          <p class="hero-footer-note">Room rates are indicative estimates. See the <a href="#financials" class="underline-link">financials & payment guide</a> for complete pricing breakdown and contribution timeline.</p>
         </div>
       </section>
 
@@ -257,7 +263,311 @@ app.innerHTML = `
         </div>
       </section>
 
-      <!-- Section 4: RSVP Form Container -->
+      <!-- Section 4: Estimated Costs & Financials -->
+      <section class="section-block" id="financials" aria-labelledby="financials-title">
+        <div class="section-heading-row">
+          <div class="financials-heading-bar">
+            <div>
+              <div class="hero-eyebrow"><span class="dot-indicator green"></span> TRANSPARENT & NOT-FOR-PROFIT</div>
+              <h2 class="section-title" id="financials-title">Estimated Costs & Financials</h2>
+              <p class="section-sub">Transparent breakdown for Royal Orchid hotel stay, celebrations, meals, and payment timeline.</p>
+            </div>
+            <div class="financials-badge-wrap">
+              <span class="sample-notice-pill">${icon('info')} Indicative figures · Sample budget preview</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Pricing Tier Cards Grid -->
+        <div class="pricing-grid">
+          <!-- Tier 1: 2-Night Stay -->
+          <article class="pricing-card pricing-purple">
+            <div class="pricing-badge-row">
+              <span class="preferred-tag">${icon('star')} Most Popular</span>
+              <span class="pricing-duration">6–8 Aug · 2 Nights</span>
+            </div>
+            <h3 class="pricing-tier-title">2-Night Full Stay</h3>
+            <p class="pricing-desc">The complete reunion experience from Friday check-in to Sunday morning farewell.</p>
+
+            <div class="pricing-rates-box">
+              <div class="rate-row highlight-rate">
+                <div class="rate-meta">
+                  <span class="rate-type">Twin / Double Sharing</span>
+                  <small class="rate-sub">Per person (sharing with classmate)</small>
+                </div>
+                <div class="rate-amount-wrap">
+                  <span class="rate-currency">₹</span><span class="rate-value">18,500</span>
+                </div>
+              </div>
+              <div class="rate-row secondary-rate">
+                <div class="rate-meta">
+                  <span class="rate-type">Single Occupancy</span>
+                  <small class="rate-sub">Private deluxe room for 1 alumnus</small>
+                </div>
+                <div class="rate-amount-wrap">
+                  <span class="rate-currency">₹</span><span class="rate-value">28,000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pricing-divider"></div>
+
+            <h4 class="pricing-features-heading">What’s included:</h4>
+            <ul class="pricing-features-list">
+              <li>${icon('check')} 2 nights deluxe room at Royal Orchid Resort</li>
+              <li>${icon('check')} Friday welcome dinner & informal drinks mixer</li>
+              <li>${icon('check')} Saturday breakfast, lunch & evening high tea</li>
+              <li>${icon('check')} Saturday Grand Gala Dinner & DJ celebrations</li>
+              <li>${icon('check')} Sunday farewell buffet breakfast & checkout</li>
+              <li>${icon('check')} Custom reunion polo t-shirt & memento kit</li>
+              <li>${icon('check')} Resort amenities, lawn activities & all hotel taxes</li>
+            </ul>
+
+            <button type="button" class="tier-action-btn pricing-action-btn" data-plan="2_night" data-default-label="Select 2-Night Stay" aria-pressed="false">
+              <span data-plan-label>Select 2-Night Stay</span> ${icon('arrowUpRight')}
+            </button>
+          </article>
+
+          <!-- Tier 2: 1-Night Stay -->
+          <article class="pricing-card pricing-mint">
+            <div class="pricing-badge-row">
+              <span class="pricing-pill pill-mint">Weekend Getaway</span>
+              <span class="pricing-duration">7–8 Aug · 1 Night</span>
+            </div>
+            <h3 class="pricing-tier-title">1-Night Stay</h3>
+            <p class="pricing-desc">Check in Saturday afternoon for the main celebrations, gala evening, and Sunday breakfast.</p>
+
+            <div class="pricing-rates-box">
+              <div class="rate-row highlight-rate">
+                <div class="rate-meta">
+                  <span class="rate-type">Twin / Double Sharing</span>
+                  <small class="rate-sub">Per person (sharing with classmate)</small>
+                </div>
+                <div class="rate-amount-wrap">
+                  <span class="rate-currency">₹</span><span class="rate-value">11,500</span>
+                </div>
+              </div>
+              <div class="rate-row secondary-rate">
+                <div class="rate-meta">
+                  <span class="rate-type">Single Occupancy</span>
+                  <small class="rate-sub">Private deluxe room for 1 alumnus</small>
+                </div>
+                <div class="rate-amount-wrap">
+                  <span class="rate-currency">₹</span><span class="rate-value">17,000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pricing-divider"></div>
+
+            <h4 class="pricing-features-heading">What’s included:</h4>
+            <ul class="pricing-features-list">
+              <li>${icon('check')} 1 night deluxe room at Royal Orchid Resort</li>
+              <li>${icon('check')} Saturday afternoon check-in & high tea</li>
+              <li>${icon('check')} Saturday Grand Gala Dinner & celebrations</li>
+              <li>${icon('check')} Sunday farewell buffet breakfast & checkout</li>
+              <li>${icon('check')} Custom reunion polo t-shirt & memento kit</li>
+              <li>${icon('check')} Resort amenities, lawn activities & all hotel taxes</li>
+            </ul>
+
+            <button type="button" class="tier-action-btn pricing-action-btn" data-plan="1_night" data-default-label="Select 1-Night Stay" aria-pressed="false">
+              <span data-plan-label>Select 1-Night Stay</span> ${icon('arrowUpRight')}
+            </button>
+          </article>
+
+          <!-- Tier 3: Day Attendee -->
+          <article class="pricing-card pricing-peach">
+            <div class="pricing-badge-row">
+              <span class="pricing-pill pill-peach">Saturday Pass</span>
+              <span class="pricing-duration">7 Aug · All Day</span>
+            </div>
+            <h3 class="pricing-tier-title">Day Attendee</h3>
+            <p class="pricing-desc">For Bangalore residents or batchmates arranging their own overnight stay.</p>
+
+            <div class="pricing-rates-box">
+              <div class="rate-row highlight-rate">
+                <div class="rate-meta">
+                  <span class="rate-type">Full Day & Gala Pass</span>
+                  <small class="rate-sub">Per alumnus (no hotel stay needed)</small>
+                </div>
+                <div class="rate-amount-wrap">
+                  <span class="rate-currency">₹</span><span class="rate-value">5,500</span>
+                </div>
+              </div>
+              <div class="rate-row secondary-rate empty-placeholder">
+                <div class="rate-meta">
+                  <span class="rate-type">Programme Timings</span>
+                  <small class="rate-sub">Saturday 11:00 AM till late night</small>
+                </div>
+                <div class="rate-amount-wrap">
+                  <span class="rate-tag-pill">Day Only</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pricing-divider"></div>
+
+            <h4 class="pricing-features-heading">What’s included:</h4>
+            <ul class="pricing-features-list">
+              <li>${icon('check')} Full day access to Royal Orchid gardens & hall</li>
+              <li>${icon('check')} Saturday afternoon catch-up & high tea</li>
+              <li>${icon('check')} Saturday Grand Gala Dinner & party drinks</li>
+              <li>${icon('check')} Custom reunion polo t-shirt & memento kit</li>
+              <li>${icon('check')} Group photo sessions & milestone keepsake</li>
+              <li>${icon('check')} All banquet venue fees & catering taxes</li>
+            </ul>
+
+            <button type="button" class="tier-action-btn pricing-action-btn" data-plan="day_attendee" data-default-label="Select Day Attendee" aria-pressed="false">
+              <span data-plan-label>Select Day Attendee</span> ${icon('arrowUpRight')}
+            </button>
+          </article>
+        </div>
+
+        <!-- Two-Column Payment Details: Timeline & Bank Transfer -->
+        <div class="payment-overview-grid">
+          <!-- Column 1: Step-by-Step Payment Schedule -->
+          <div class="payment-steps-card">
+            <div class="card-eyebrow"><span class="dot-indicator blue"></span> HOW TO PAY & TIMELINE</div>
+            <h3 class="card-inner-title">Payment Schedule & Next Steps</h3>
+            <p class="card-inner-desc">To secure group discounts and reserve rooms at Royal Orchid, contributions are collected in two stages.</p>
+
+            <ol class="payment-timeline-steps">
+              <li class="timeline-step-item">
+                <div class="step-num-badge">01</div>
+                <div class="step-content">
+                  <h4>Submit your RSVP below</h4>
+                  <p>Confirm your attendance and choose your participation plan. No upfront payment is required to submit the form.</p>
+                </div>
+              </li>
+
+              <li class="timeline-step-item">
+                <div class="step-num-badge">02</div>
+                <div class="step-content">
+                  <div class="flex-between">
+                    <h4>50% Advance Deposit</h4>
+                    <span class="step-deadline-badge">By 31 March 2027</span>
+                  </div>
+                  <p>Locks in your room block and guarantees early-bird resort group pricing with Royal Orchid.</p>
+                </div>
+              </li>
+
+              <li class="timeline-step-item">
+                <div class="step-num-badge">03</div>
+                <div class="step-content">
+                  <div class="flex-between">
+                    <h4>Remaining 50% Balance</h4>
+                    <span class="step-deadline-badge">By 30 June 2027</span>
+                  </div>
+                  <p>Finalizes banquet counts, customized memento kits, and resort event logistics.</p>
+                </div>
+              </li>
+
+              <li class="timeline-step-item">
+                <div class="step-num-badge">04</div>
+                <div class="step-content">
+                  <h4>Share transfer receipt</h4>
+                  <p>After transferring via UPI or NEFT, message the receipt screenshot to the organizing committee for immediate confirmation.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Column 2: Bank & UPI Contribution Box -->
+          <div class="payment-details-card">
+            <div class="card-eyebrow"><span class="dot-indicator amber"></span> SAMPLE BANK & UPI DETAILS</div>
+            <h3 class="card-inner-title">Contribution Accounts</h3>
+            <p class="card-inner-desc">Managed by the reunion organizing committee. (Sample data for preview purposes)</p>
+
+            <!-- UPI Box -->
+            <div class="bank-detail-box">
+              <div class="bank-box-header">
+                <span class="bank-badge">${icon('phone')} UPI Instant Transfer</span>
+                <span class="bank-tag">Recommended for India</span>
+              </div>
+              <div class="bank-field-row">
+                <div>
+                  <span class="bank-field-label">UPI ID / VPA</span>
+                  <code class="bank-code-val">mtrs9597@icici</code>
+                </div>
+                <button type="button" class="btn-copy-sm" data-copy-val="mtrs9597@icici" title="Copy UPI ID">
+                  ${icon('copy')} <span>Copy</span>
+                </button>
+              </div>
+              <p class="bank-note">Scan via Google Pay, PhonePe, Paytm, or BHIM.</p>
+            </div>
+
+            <!-- Bank Transfer Box -->
+            <div class="bank-detail-box">
+              <div class="bank-box-header">
+                <span class="bank-badge">${icon('lock')} Bank Wire (NEFT / IMPS)</span>
+                <span class="bank-tag">For India & Overseas</span>
+              </div>
+              <div class="bank-table-grid">
+                <div class="bank-cell">
+                  <span class="bank-field-label">Account Name</span>
+                  <strong class="bank-cell-val">MTRS 95/97 Reunion Committee</strong>
+                </div>
+                <div class="bank-cell">
+                  <span class="bank-field-label">Bank Name</span>
+                  <strong class="bank-cell-val">HDFC Bank Ltd.</strong>
+                </div>
+                <div class="bank-cell">
+                  <span class="bank-field-label">Account Number</span>
+                  <div class="flex-between">
+                    <code class="bank-code-val">5020 0095 9795 97</code>
+                    <button type="button" class="btn-copy-sm" data-copy-val="50200095979597" title="Copy Account Number">
+                      ${icon('copy')} <span>Copy</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="bank-cell">
+                  <span class="bank-field-label">IFSC Code</span>
+                  <div class="flex-between">
+                    <code class="bank-code-val">HDFC0000123</code>
+                    <button type="button" class="btn-copy-sm" data-copy-val="HDFC0000123" title="Copy IFSC">
+                      ${icon('copy')} <span>Copy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transfer Remark Notice -->
+            <div class="transfer-remark-tip">
+              <strong>${icon('info')} Important Note:</strong> In your transfer description / note, please write: <code>MTRS - [Your Full Name]</code> so we can match your payment with your RSVP record!
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Policy Highlights Grid -->
+        <div class="financials-policy-grid">
+          <div class="policy-item">
+            <span class="policy-icon-wrap">${icon('heart')}</span>
+            <h4>100% Not-for-Profit</h4>
+            <p>All contributions directly fund actual resort rooms, catering, banquet venues, and souvenirs. Any surplus will be donated to our school or decided by the batch.</p>
+          </div>
+
+          <div class="policy-item">
+            <span class="policy-icon-wrap">${icon('check')}</span>
+            <h4>Flexible Cancellation</h4>
+            <p>100% refund for cancellations requested before 31 May 2027. Cancellations after that will follow the hotel’s room cancellation policy.</p>
+          </div>
+
+          <div class="policy-item">
+            <span class="policy-icon-wrap">${icon('users')}</span>
+            <h4>Spouses & Family</h4>
+            <p>Want to bring your spouse or partner? Twin room spouse add-on is approx. ₹9,000 (2 nights) / ₹5,500 (1 night) including all meals and gala dinner.</p>
+          </div>
+
+          <div class="policy-item">
+            <span class="policy-icon-wrap">${icon('star')}</span>
+            <h4>Discreet Inquiries</h4>
+            <p>We want every batchmate to join us. If you need financial flexibility or wish to contribute towards a travel grant for a classmate, contact the committee discreetly.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: RSVP Form Container -->
       <section class="rsvp-surface-wrap" id="rsvp" aria-labelledby="rsvp-title">
         <div class="registration-surface" id="registration-surface">
           <div class="table-state-box" role="status">
@@ -281,7 +591,17 @@ function updateSelectedPlan(): void {
     const active = button.dataset.plan === selectedPlan;
     button.setAttribute('aria-pressed', String(active));
     button.closest('.plan-card')?.classList.toggle('is-selected', active);
-    button.querySelector<HTMLElement>('[data-plan-label]')!.textContent = eventSettings && !eventSettings.registrationOpen ? 'Registration closed' : active ? 'Selected' : 'Select Option';
+    button.closest('.pricing-card')?.classList.toggle('is-selected', active);
+    const label = button.querySelector<HTMLElement>('[data-plan-label]');
+    if (label) {
+      if (eventSettings && !eventSettings.registrationOpen) {
+        label.textContent = 'Registration closed';
+      } else if (active) {
+        label.textContent = 'Selected';
+      } else {
+        label.textContent = button.dataset.defaultLabel || 'Select Option';
+      }
+    }
   });
 }
 
@@ -309,7 +629,7 @@ function showConfirmation(registration: Registration, token: string): void {
         <p class="copy-feedback text-muted font-11 mt-10" data-copy-feedback role="status"></p>
       </div>
 
-      <p class="text-muted font-12">Organizers will coordinate room arrangements and payment separately.</p>
+      <p class="text-muted font-12">Organizers will coordinate room arrangements and payment separately as outlined in the <a href="#financials" class="underline-link">financials & payment guide</a>.</p>
     </section>`;
 
   surface.querySelector<HTMLButtonElement>('[data-copy-link]')!.addEventListener('click', () => {
@@ -408,6 +728,18 @@ app.addEventListener('click', event => {
   }
   if (target.closest('[data-retry-event]')) {
     void loadEvent();
+  }
+  const copyValBtn = target.closest<HTMLButtonElement>('[data-copy-val]');
+  if (copyValBtn) {
+    const val = copyValBtn.dataset.copyVal || '';
+    void navigator.clipboard.writeText(val).then(() => {
+      const span = copyValBtn.querySelector('span');
+      if (span) {
+        const orig = span.textContent;
+        span.textContent = 'Copied!';
+        setTimeout(() => { span.textContent = orig; }, 1800);
+      }
+    });
   }
   const menuToggle = target.closest<HTMLButtonElement>('.menu-toggle');
   if (menuToggle) {
